@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image Converter</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Image Converter</h1>
+        <div class="form-container">
+            <form id="generateForm">
+                <div class="form-group">
+                    <label for="prompt">Enter your prompt:</label>
+                    <textarea 
+                        id="prompt" 
+                        name="prompt" 
+                        required 
+                        minlength="3"
+                        maxlength="500"
+                        placeholder="Describe the image you want to generate..."
+                    ></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="width">Width:</label>
+                        <input 
+                            type="number" 
+                            id="width" 
+                            name="width" 
+                            value="512"
+                            min="256"
+                            max="1024"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height:</label>
+                        <input 
+                            type="number" 
+                            id="height" 
+                            name="height" 
+                            value="512"
+                            min="256"
+                            max="1024"
+                        >
+                    </div>
+                </div>
+                <button type="submit" id="generateBtn">Generate Image</button>
+            </form>
+        </div>
+        <div id="result" class="result-container hidden">
+            <h2>Generated Image</h2>
+            <div class="image-container">
+                <img id="generatedImage" alt="Generated image">
+            </div>
+            <button id="downloadBtn" class="download-btn">Download Image</button>
+        </div>
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Generating image...</p>
+        </div>
+        <div id="error" class="error hidden"></div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
